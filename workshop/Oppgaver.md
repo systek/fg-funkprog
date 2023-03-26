@@ -1,40 +1,44 @@
 ## Idéer
 
 Ting vi kanskje kan bruke:
+
 - ts-pattern (Vise pattern matching).
 - fp-ts (Monadiske typer som Either).
-- ramda/remeda (Currying/Partial application/Compose).
+- ramda/rambda/remeda (Currying/Partial application/Compose).
 
 Use TS like a Haskeller: https://serokell.io/blog/typescript-for-haskellers
 
-# Oppgave 1:
+Forslag til kategorier:
 
-filter/map/reduce
+Litta 10-20min presentasjon.
+Pure functions, immutability.
 
-# Oppgave 2:
+dopamin-drevet programmering
 
-Recursion
+Lage WS-en som en code sandbox.
 
-# Oppgave 3:
+step 1:
+Pure functions
 
-Curry/Partial application
+dataobjekt.
+Lag en flitreringsfunksjon.
+lag en funksjon som transformerer.
 
-# Oppgave 4:
+Step 2: HoF
 
-Higher order functions
+Step 3: (curry, PA)
 
-# Oppgave 5:
+Step 4: Compose.
+komponer pure functions vi allerede har lagd.
 
-Compose
+Step 5: Algebraic dataypes
 
-# Oppgave 6:
+(Step 6: Pattern matching)
 
-Pattern-matching
+Kanskje løse som enhetstester som starter
+som røde og blir grønn når deltakerene løser de. (immutable objekter).
 
-# Oppgave 7:
+Oppgave hvor en funksjon muterer input. 
 
-Functors
-
-# Oppgave 8:
-
-Monads
+-- Oppg:
+- Finn ut hvilken dato personen får lønn på.
