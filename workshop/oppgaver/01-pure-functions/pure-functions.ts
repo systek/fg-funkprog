@@ -1,3 +1,12 @@
+/*
+Pure functions
+
+Copilot sier:
+    "Pure functions are functions that always return the same result if the same arguments are passed in. They do not
+    depend on any state, or data, change during a program’s execution. They must only depend on their input arguments."
+
+*/
+
 import { Currency } from "../constants";
 import { Transaction } from "../../createMockData";
 
@@ -14,7 +23,7 @@ export const convertCurrency = (exchangeRate: number, amount: number) =>
  * OPPGAVE 1.2: Lag en funksjon som ser om en transaksjon er av en gitt valuta.
  */
 export const isCurrency = (currency: Currency, transaction: Transaction) =>
-    false;
+  false;
 
 /**
  * OPPGAVE 1.3: En funksjon som ikke er pure?!
