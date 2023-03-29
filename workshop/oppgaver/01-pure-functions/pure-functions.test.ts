@@ -1,5 +1,5 @@
 import { it, expect, describe } from "vitest";
-import { convertCurrency, isCurrency, takeFirstN } from "./pure-functions";
+
 import {
   DKK_TO_SEK,
   EUR_TO_NOK,
@@ -7,8 +7,9 @@ import {
   SEK_TO_USD,
   USD_TO_GBP,
 } from "../constants";
-import { isCurrencyCurried } from "../03-currying-partial-application/currying-partial-application";
 import { Transaction } from "../../createMockData";
+
+import { convertCurrency, isCurrency, takeFirstN } from "./pure-functions";
 
 describe("OPPGAVE 1.1", () => {
   it("correctly converts from DKK to SEK", () => {
@@ -32,8 +33,19 @@ describe("OPPGAVE 1.1", () => {
   });
 });
 
-describe("OPPGAVE 1.2: Ikke-pure funksjon", () => {
-  const transactions = ["Transaction-A", "Transaction-B", "Transaction-C"];
+describe("OPPGAVE 1.2", () => {
+  it("Should return true when the currency is DKK", () => {
+    const transaction = { currency: "DKK" } as Transaction;
+    expect(isCurrency("DKK", transaction)).toEqual(true);
+  });
+});
+
+describe("OPPGAVE 1.3", () => {
+  const transactions: string[] = [
+    "Transaction-A",
+    "Transaction-B",
+    "Transaction-C",
+  ];
 
   it("get first two elements", () => {
     expect(takeFirstN(transactions, 2)).toEqual(["A", "B"]);
@@ -49,12 +61,5 @@ describe("OPPGAVE 1.2: Ikke-pure funksjon", () => {
       "Transaction-B",
       "Transaction-C",
     ]);
-  });
-});
-
-describe("OPPGAVE 1.3", () => {
-  it("Should return true when the currency is DKK", () => {
-    const transaction = { currency: "DKK" } as Transaction;
-    expect(isCurrency("DKK", transaction)).toEqual(true);
   });
 });
