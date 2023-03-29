@@ -7,35 +7,37 @@ import {
   SEK_TO_USD,
   USD_TO_GBP,
 } from "../constants";
-import { isCurrency } from "../02-higher-order-functions/higher-order-functions";
 import { Transaction } from "../../createMockData";
-import { sumBy } from "remeda";
+import R, { sumBy } from "remeda";
+import {isCurrencyCurried} from "../03-currying-partial-application/currying-partial-application";
 
-const dkkToSek = (amount: number) => amount * DKK_TO_SEK;
-const sekToUsd = (amount: number) => amount * SEK_TO_USD;
-const usdToGbp = (amount: number) => amount * USD_TO_GBP;
-const gbpToEur = (amount: number) => amount * GBP_TO_EUR;
-const eurToNok = (amount: number) => amount * EUR_TO_NOK;
+// BLACK BOX THIS
+const convert = (rate: number) => (amount: number): number => amount * rate;
+const dkkToSek = convert(DKK_TO_SEK);
+const sekToUsd = convert(SEK_TO_USD);
+const usdToGbp = convert(USD_TO_GBP);
+const gbpToEur = convert(GBP_TO_EUR);
+const eurToNok = convert(EUR_TO_NOK);
 
+// BLACK BOX END
+
+// Del 1: alle burde få til
 export const dkkToNok = flow(dkkToSek, sekToUsd, usdToGbp, gbpToEur, eurToNok);
 
 export const filterByCurrency =
   (currency: Currency) => (transactions: Transaction[]) => {
     return transactions.filter((transactions) =>
-      isCurrency(currency, transactions)
+      isCurrencyCurried(currency)(transactions)
     );
   };
 
-// slutten av section
-const amountSpentOnPantsByCurrency: number = (currency: Currency) => {
+// Del N: 10% får til
+const amountSpentOnPantsByCurrency = (currency: Currency): (transactions: Transaction[]) => number => {
   return flow(
-    // en e
-    filterByCurrency(currency),
-    // anna oppgave
-    // byClothes,
-    // kanskje den e ny
-    sumBy((it) => it.amount),
-    // ToNok
-    dkkToNok
+    R.filter(isCurrencyCurried(currency)),
+    R.filter(it => it.product === "pants"),
+    R.map(it => +it.amount),
+    R.map(dkkToNok),
+    R.sumBy(R.identity),
   );
 };

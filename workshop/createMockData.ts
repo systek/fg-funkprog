@@ -5,7 +5,7 @@ import { isBefore, isAfter } from "date-fns";
 export type Transaction = {
   currency: string;
   time: string;
-  amount: string;
+  amount: number;
   product?: string;
   merchantCountry?: string;
   merchantName?: string;
@@ -22,7 +22,7 @@ const createRandomFinancialData = (): Transaction => ({
       new Date("2023-01-01T00:00:00.000Z")
     )
     .toISOString(),
-  amount: faker.finance.amount(-30000, -1),
+  amount: +faker.finance.amount(-30000, -1),
   product: faker.commerce.product(),
   merchantCountry: faker.address.country(),
   merchantName: faker.company.name(),
@@ -36,7 +36,7 @@ for (let i = 1; i < 13; i++) {
   data.push({
     currency: "NOK",
     time: new Date(`12-${pad}-2022`).toISOString(),
-    amount: "38000",
+    amount: 38000,
     transactionType: "salary",
   });
 }
