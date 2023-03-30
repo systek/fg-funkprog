@@ -22,11 +22,3 @@ const findLargest = <T>(ordInstance: Ord<T>) =>
 const findLargestTransaction: (
   transaction: Transaction[]
 ) => Option<Transaction> = findLargest<Transaction>(ordTransaction);
-
-// PUT THIS IS 05-algebraic unions
-// RENAME THIS FILE TO 06-typeclasses
-type GoodOrBadUnion = { goodStuff: number } | { ohNoError: string };
-
-function somethingEither(input: GoodOrBadUnion) {
-
-}
