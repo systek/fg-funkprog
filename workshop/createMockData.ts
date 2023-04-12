@@ -52,6 +52,6 @@ const sortedData = data.sort((a, b) => {
 });
 
 console.log(sortedData);
-fs.writeFile("transactions.json", JSON.stringify(sortedData), (err) => {
+fs.writeFile("transactions.ts", JSON.stringify(sortedData), (err) => {
   console.log("Heck: ", err);
 });
