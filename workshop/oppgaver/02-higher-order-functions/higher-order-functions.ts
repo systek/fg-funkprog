@@ -8,40 +8,57 @@ Copilot sier:
 import { Transaction } from "../../createMockData";
 import { Currency } from "../constants";
 
-export const isCurrency = (currency: Currency, transaction: Transaction) =>
-  transaction.currency === currency;
+import { isCurrency } from "./__spoilers/dontopen";
 
 /**
  * OPPGAVE 2.1: Lag en funksjon som tar inn en valuta og en liste med transaksjoner
+ * og filtrerer ut transaksjonene i den gitte valutaen.
+ *
+ * Hint: Her får du isCurrency funksjonen fra oppgave 1.2 importert.
  */
 export const filterByCurrency = (
   currency: Currency,
   transactions: Transaction[]
 ) => {
-  return transactions.filter((transactions) =>
-    isCurrency(currency, transactions)
-  );
+  return transactions.filter((transactions) => {
+    return isCurrency(currency, transactions);
+  });
 };
 
 /**
- * OPPGAVE 2.2: Lag en funksjon som filtrerer ut alle transaksjoner av type NOK, og returnerer en liste med produkter.
+ * OPPGAVE 2.2: Lag en funksjon som filtrerer ut alle transaksjoner i valutaen NOK, og returnerer en liste med produkter.
  */
-export const productsBoughtWithNok = (transactions: Transaction[]) => {
-  const toProduct = (transactions: Transaction) => transactions.product;
+export const productsBoughtWithNOK = (transactions: Transaction[]) => {
+  const toProduct = (transaction: Transaction) => transaction.product;
   const byNok = (transaction: Transaction) => isCurrency("NOK", transaction);
 
   return transactions
     .filter(byNok)
     .map(toProduct)
-    .filter((it) => it != null);
+    .filter((it): it is string => it != null);
 };
 
 /**
  * OPPGAVE 2.3: Utvid signaturen til å ta i mot en funksjon som et parameter som avgjør om en transaksjon er relevant eller ikke.
+ *
+ * Hint: Se på testen :)
  */
 export const filterTransactionsByProduct = (
   transactions: Transaction[],
   isRelevantTransaction: (transaction: Transaction) => boolean
 ) => {
   return transactions.filter(isRelevantTransaction);
+  // return []
+};
+
+/**
+ * OPPGAVE 2.4: Lag en funksjon som returnerer en funksjon som filtrerer en gitt transaksjon basert på valuta-parameteret.
+ */
+type FilterByCurrency = (transaction: Transaction) => boolean;
+
+export const createFilterByCurrency = (
+  currency: Currency
+): FilterByCurrency => {
+  return (transaction) => currency === transaction.currency;
+  // return () => false
 };

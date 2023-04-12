@@ -10,6 +10,7 @@ import {
 import { Transaction } from "../../createMockData";
 
 import { convertCurrency, isCurrency, takeFirstN } from "./pure-functions";
+import { createFilterByMordi } from "../02-higher-order-functions/higher-order-functions";
 
 describe("OPPGAVE 1.1", () => {
   it("correctly converts from DKK to SEK", () => {
@@ -38,6 +39,16 @@ describe("OPPGAVE 1.2", () => {
     const transaction = { currency: "DKK" } as Transaction;
     expect(isCurrency("DKK", transaction)).toEqual(true);
   });
+
+  it("Should return true when the currency is NOK", () => {
+    const transaction = { currency: "NOK" } as Transaction;
+    expect(isCurrency("NOK", transaction)).toEqual(true);
+  });
+
+  it("Should return true when the currency is GBP", () => {
+    const transaction = { currency: "GBP" } as Transaction;
+    expect(isCurrency("GBP", transaction)).toEqual(true);
+  });
 });
 
 describe("OPPGAVE 1.3", () => {
@@ -48,11 +59,14 @@ describe("OPPGAVE 1.3", () => {
   ];
 
   it("get first two elements", () => {
-    expect(takeFirstN(transactions, 2)).toEqual(["A", "B"]);
+    expect(takeFirstN(transactions, 2)).toEqual([
+      "Transaction-A",
+      "Transaction-B",
+    ]);
   });
 
   it("get first element", () => {
-    expect(takeFirstN(transactions, 1)).toEqual(["A"]);
+    expect(takeFirstN(transactions, 1)).toEqual(["Transaction-A"]);
   });
 
   it("get all elements", () => {

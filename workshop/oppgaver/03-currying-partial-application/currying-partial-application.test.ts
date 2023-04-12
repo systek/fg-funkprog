@@ -1,6 +1,6 @@
 import { it, expect, describe } from "vitest";
 import { filterByCurrency } from "./currying-partial-application";
-import transactions from "../../data/transactions.json";
+import transactions from "../../data/transactions";
 
 describe("Currying", () => {
   it("filters out all transactions in NOK", () => {

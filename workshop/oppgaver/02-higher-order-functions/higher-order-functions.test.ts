@@ -2,9 +2,10 @@ import { it, expect, describe } from "vitest";
 import {
   filterByCurrency,
   filterTransactionsByProduct,
-  productsBoughtWithNok,
+  productsBoughtWithNOK,
+  createFilterByCurrency,
 } from "./higher-order-functions";
-import transactions from "../../data/transactions.json";
+import transactions from "../../data/transactions";
 
 describe("OPPGAVE 2.1", () => {
   it("filters out all transactions in NOK", () => {
@@ -34,11 +35,11 @@ describe("OPPGAVE 2.1", () => {
 
 describe("OPPGAVE 2.2", () => {
   it("filters out all transactions in NOK", () => {
-    expect(productsBoughtWithNok(transactions)).toHaveLength(168);
+    expect(productsBoughtWithNOK(transactions)).toHaveLength(168);
   });
 
   it("filters out all transactions in NOK", () => {
-    expect(productsBoughtWithNok(transactions).slice(0, 5)).toEqual([
+    expect(productsBoughtWithNOK(transactions).slice(0, 5)).toEqual([
       "Mouse",
       "Towels",
       "Mouse",
@@ -65,5 +66,19 @@ describe("OPPGAVE 2.3", () => {
         (product) => product.product === "Mouse"
       )
     ).toHaveLength(63);
+  });
+});
+
+describe("OPPGAVE 2.4", () => {
+  it("shall filter by DKK", () => {
+    const filterByDKK = createFilterByCurrency("DKK");
+
+    expect(transactions.filter(filterByDKK)).toHaveLength(184);
+  });
+
+  it("shall filter by USD", () => {
+    const filterByDKK = createFilterByCurrency("USD");
+
+    expect(transactions.filter(filterByDKK)).toHaveLength(168);
   });
 });
