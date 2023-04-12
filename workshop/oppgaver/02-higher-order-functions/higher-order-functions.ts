@@ -54,11 +54,9 @@ export const filterTransactionsByProduct = (
 /**
  * OPPGAVE 2.4: Lag en funksjon som returnerer en funksjon som filtrerer en gitt transaksjon basert på valuta-parameteret.
  */
-type FilterByCurrency = (transaction: Transaction) => boolean;
+type CurrencyFilter = (transaction: Transaction) => boolean;
 
-export const createFilterByCurrency = (
-  currency: Currency
-): FilterByCurrency => {
+export const currencyFilter = (currency: Currency): CurrencyFilter => {
   return (transaction) => currency === transaction.currency;
   // return () => false
 };

@@ -3,7 +3,7 @@ import {
   filterByCurrency,
   filterTransactionsByProduct,
   productsBoughtWithNOK,
-  createFilterByCurrency,
+  currencyFilter,
 } from "./higher-order-functions";
 import transactions from "../../data/transactions";
 
@@ -71,14 +71,14 @@ describe("OPPGAVE 2.3", () => {
 
 describe("OPPGAVE 2.4", () => {
   it("shall filter by DKK", () => {
-    const filterByDKK = createFilterByCurrency("DKK");
+    const byDKK = currencyFilter("DKK");
 
-    expect(transactions.filter(filterByDKK)).toHaveLength(184);
+    expect(transactions.filter(byDKK)).toHaveLength(184);
   });
 
   it("shall filter by USD", () => {
-    const filterByDKK = createFilterByCurrency("USD");
+    const byUSD = currencyFilter("USD");
 
-    expect(transactions.filter(filterByDKK)).toHaveLength(168);
+    expect(transactions.filter(byUSD)).toHaveLength(168);
   });
 });
