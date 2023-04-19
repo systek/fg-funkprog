@@ -10,7 +10,6 @@ import {
 import { Transaction } from "../../createMockData";
 
 import { convertCurrency, isCurrency, takeFirstN } from "./pure-functions";
-import { createFilterByMordi } from "../02-higher-order-functions/higher-order-functions";
 
 describe("OPPGAVE 1.1", () => {
   it("correctly converts from DKK to SEK", () => {
