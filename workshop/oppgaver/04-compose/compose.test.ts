@@ -1,20 +1,34 @@
 import { it, expect, describe } from "vitest";
-import { dkkToNok } from "./compose";
-import {flow} from "fp-ts/function";
+import {
+  dayOfSalary,
+  dkkToNok,
+  examplePersonsSalary,
+  pantsBoughtInNok,
+  shoesBoughtInNok,
+} from "./compose";
+import { transactions } from "../../data/transactions";
 
-describe("Compose", () => {
-  it("eksemel, ps: lek med denne", ()=> {
-    // impl
-    const ex: (a: number) => number = flow((number): number => number)
+describe("OPPGAVE 4.1", () => {
+  it("convert from DKK to SEK", () => {
+    expect(Number(dkkToNok(90).toFixed(1))).toBe(136.2);
+  });
+});
 
-    // testl
-    ex(69)
+describe("OPPGAVE 4.2", () => {
+  it("get the day of salary", () => {
+    expect(dayOfSalary(transactions)).toBe(12);
+  });
+});
 
-    // leik d
-    ex(69)
-  })
+describe("OPPGAVE 4.3", () => {
+  it("Should calculate the correct salary", () => {
+    expect(examplePersonsSalary).toEqual(456000);
+  });
+});
 
-  it("correctly converts currency from DKK to NOK", () => {
-    expect(dkkToNok(100)).toEqual(151.30384684799998);
+describe("OPPGAVE 4.4", () => {
+  it("Should calculate NOK amount spent on pants and shoes", () => {
+    expect(pantsBoughtInNok).toBe(-172401.17);
+    expect(shoesBoughtInNok).toBe(-88631.16);
   });
 });

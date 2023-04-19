@@ -5,46 +5,46 @@ import {
   productsBoughtWithNOK,
   currencyFilter,
 } from "./higher-order-functions";
-import transactions from "../../data/transactions";
+import { transactions } from "../../data/transactions";
 
 describe("OPPGAVE 2.1", () => {
   it("filters out all transactions in NOK", () => {
-    expect(filterByCurrency("NOK", transactions)).toHaveLength(180);
+    expect(filterByCurrency("NOK", transactions)).toHaveLength(181);
   });
 
   it("filters out all transactions in SEK", () => {
-    expect(filterByCurrency("SEK", transactions)).toHaveLength(139);
+    expect(filterByCurrency("SEK", transactions)).toHaveLength(160);
   });
 
   it("filters out all transactions in DKK", () => {
-    expect(filterByCurrency("DKK", transactions)).toHaveLength(184);
+    expect(filterByCurrency("DKK", transactions)).toHaveLength(171);
   });
 
   it("filters out all transactions in EUR", () => {
-    expect(filterByCurrency("EUR", transactions)).toHaveLength(162);
+    expect(filterByCurrency("EUR", transactions)).toHaveLength(160);
   });
 
   it("filters out all transactions in USD", () => {
-    expect(filterByCurrency("USD", transactions)).toHaveLength(168);
+    expect(filterByCurrency("USD", transactions)).toHaveLength(184);
   });
 
   it("filters out all transactions in GBP", () => {
-    expect(filterByCurrency("GBP", transactions)).toHaveLength(179);
+    expect(filterByCurrency("GBP", transactions)).toHaveLength(156);
   });
 });
 
 describe("OPPGAVE 2.2", () => {
   it("filters out all transactions in NOK", () => {
-    expect(productsBoughtWithNOK(transactions)).toHaveLength(168);
+    expect(productsBoughtWithNOK(transactions)).toHaveLength(169);
   });
 
   it("filters out all transactions in NOK", () => {
     expect(productsBoughtWithNOK(transactions).slice(0, 5)).toEqual([
-      "Mouse",
-      "Towels",
-      "Mouse",
-      "Shoes",
-      "Fish",
+      "Pizza",
+      "Bacon",
+      "Pants",
+      "Chicken",
+      "Ball",
     ]);
   });
 });
@@ -56,7 +56,7 @@ describe("OPPGAVE 2.3", () => {
         transactions,
         (product) => product.currency === "NOK" && product.amount < -29000
       )
-    ).toHaveLength(2);
+    ).toHaveLength(6);
   });
 
   it("find all the mice", () => {
@@ -65,7 +65,7 @@ describe("OPPGAVE 2.3", () => {
         transactions,
         (product) => product.product === "Mouse"
       )
-    ).toHaveLength(63);
+    ).toHaveLength(38);
   });
 });
 
@@ -73,12 +73,12 @@ describe("OPPGAVE 2.4", () => {
   it("shall filter by DKK", () => {
     const byDKK = currencyFilter("DKK");
 
-    expect(transactions.filter(byDKK)).toHaveLength(184);
+    expect(transactions.filter(byDKK)).toHaveLength(171);
   });
 
   it("shall filter by USD", () => {
     const byUSD = currencyFilter("USD");
 
-    expect(transactions.filter(byUSD)).toHaveLength(168);
+    expect(transactions.filter(byUSD)).toHaveLength(184);
   });
 });

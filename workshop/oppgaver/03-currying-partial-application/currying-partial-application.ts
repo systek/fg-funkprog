@@ -36,5 +36,5 @@ export const gbpToEur: FromCurrencyToCurrency = convertCurrency(ExchangeRates.GB
 export const eurToNok: FromCurrencyToCurrency = convertCurrency(ExchangeRates.EUR_TO_NOK);
 
 // skal de skrive dette selv?
-export const ninetyDkkInNok = eurToNok(gbpToEur(usdToGbp(sekToUsd(dkkToSek(100)))));
+export const ninetyDkkInNok = eurToNok(gbpToEur(usdToGbp(sekToUsd(dkkToSek(90)))));
 // export const ninetyDkkInNok = undefined;

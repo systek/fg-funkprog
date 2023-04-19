@@ -1,6 +1,6 @@
 import { it, expect, describe } from "vitest";
 
-import transactions from "../../data/transactions";
+import { transactions } from "../../data/transactions";
 import { EUR_TO_NOK } from "../constants";
 import { currencyFilter, toAmount } from "./__spoilers/dontopen";
 
@@ -18,7 +18,7 @@ describe("OPPGAVE 3.1", () => {
       .slice(0, 5);
 
     expect(result).toEqual([
-      -176572.8336, -180234.66, -195101.136, -292522.99919999996, -42670.547999999995,
+      -257428.55039999998, -196997.9808, -132428.892, -317771.92559999996, -290271.84959999996,
     ]);
   });
 });
@@ -27,8 +27,8 @@ describe("OPPGAVE 3.2", () => {
   it("tell if transaction is the given currency", () => {
     const isCurrency = CPA.isCurrencyCurried("NOK");
 
-    expect(isCurrency(transactions[0])).toBe(true);
-    expect(isCurrency(transactions[1])).toBe(false);
+    expect(isCurrency(transactions[0])).toBe(false);
+    expect(isCurrency(transactions[1])).toBe(true);
   });
 });
 
@@ -38,6 +38,6 @@ describe("OPPGAVE 3.3", () => {
   });
 
   it("should have the correct NOK", () => {
-    expect(Number(ninetyDkkInNok.toFixed(1))).toBe(151.3);
+    expect(Number(ninetyDkkInNok.toFixed(1))).toBe(136.2);
   });
 });
