@@ -1,7 +1,10 @@
-// PUT THIS IS 05-algebraic unions
-type GoodOrBadUnion = { goodStuff: number } | { ohNoError: string };
+/*
+Algebraic Data Types
 
-function somethingEither(input: GoodOrBadUnion) {}
+Copilot sier:
+    "Algebraic data types are a way to combine different types into one type.
+     They are also called tagged unions or discriminated unions."
+*/
 
 export type Square = { kind: "square"; size: number };
 export type Rectangle = { kind: "rectangle"; height: number; width: number };
@@ -40,8 +43,6 @@ export function area(shape: Shape): number {
  * For feil skal resultatet være "There was an error: " + feilmeldingen fra response.
  *
  */
-
-// fjerne generic og bare bruke f.eks string?
 export type ErrorResponse = { status: "error"; message: string };
 export type SuccessResponse<T> = { status: "success"; data: T };
 export type Response<T> = ErrorResponse | SuccessResponse<T>;
@@ -52,3 +53,5 @@ export function handleResponse(response: Response<string>): string {
   }
   return response.data;
 }
+
+// TODO compose chain kombinert med unions?
