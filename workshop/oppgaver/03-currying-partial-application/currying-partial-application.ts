@@ -12,13 +12,13 @@ import * as ExchangeRates from "../constants";
 /**
  * OPPGAVE 3.1: Gjør om convertCurrency fra oppgave 1 til å være curried.
  */
-export const convertCurrency = (exchangeRate: number) => (amount: number) => exchangeRate * amount;
+export const convertCurrency = (exchangeRate: number) => (amount: number) => 0;
 
 /**
  * OPPGAVE 3.2: Gjør om isCurrency fra oppgave 1 til å være curried.
  */
 export const isCurrencyCurried = (currency: Currency) => {
-  return (transaction: Transaction) => transaction.currency === currency;
+  return (transaction: Transaction) => 0;
 };
 
 /**
@@ -29,12 +29,10 @@ export const isCurrencyCurried = (currency: Currency) => {
  */
 
 type FromCurrencyToCurrency = (currency: number) => number;
-export const dkkToSek: FromCurrencyToCurrency = convertCurrency(ExchangeRates.DKK_TO_SEK);
-export const sekToUsd: FromCurrencyToCurrency = convertCurrency(ExchangeRates.SEK_TO_USD);
-export const usdToGbp: FromCurrencyToCurrency = convertCurrency(ExchangeRates.USD_TO_GBP);
-export const gbpToEur: FromCurrencyToCurrency = convertCurrency(ExchangeRates.GBP_TO_EUR);
-export const eurToNok: FromCurrencyToCurrency = convertCurrency(ExchangeRates.EUR_TO_NOK);
+export const dkkToSek: FromCurrencyToCurrency = () => 0;
+export const sekToUsd: FromCurrencyToCurrency = () => 0;
+export const usdToGbp: FromCurrencyToCurrency = () => 0;
+export const gbpToEur: FromCurrencyToCurrency = () => 0;
+export const eurToNok: FromCurrencyToCurrency = () => 0;
 
-// skal de skrive dette selv?
 export const ninetyDkkInNok = eurToNok(gbpToEur(usdToGbp(sekToUsd(dkkToSek(90)))));
-// export const ninetyDkkInNok = undefined;

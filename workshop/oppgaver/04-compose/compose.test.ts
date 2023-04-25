@@ -2,9 +2,9 @@ import { it, expect, describe } from "vitest";
 import {
   dayOfSalary,
   dkkToNok,
-  examplePersonsSalary,
   pantsBoughtInNok,
   shoesBoughtInNok,
+  sumSalary,
 } from "./compose";
 import { transactions } from "../../data/transactions";
 
@@ -22,7 +22,7 @@ describe("OPPGAVE 4.2", () => {
 
 describe("OPPGAVE 4.3", () => {
   it("Should calculate the correct salary", () => {
-    expect(examplePersonsSalary).toEqual(456000);
+    expect(sumSalary(transactions)).toEqual(456000);
   });
 });
 
