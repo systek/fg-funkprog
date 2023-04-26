@@ -26,6 +26,11 @@ import { getDate, getDay, parseISO } from "date-fns/fp";
  * Hint: Bruk flow fra fp-ts og funksjonene fra forrige sett med oppgaver til å
  * komponere en ny funksjon som konverterer fra DKK til NOK.
  *
+ * Flow er en funksjon som tar inn et sett med funksjoner som parameter, og returnerer en
+ * ny funksjon som tar inn en verdi som parameter. Denne verdien blir passert til siste
+ * funksjon som ble sendt inn som parameter til flow. Resultatet av dette funksjonkallet blir
+ * så sendt til nest siste parameter osv helt til alle funksjonene er
+ *
  */
 export const dkkToNok: (a: number) => number = flow((tall) => tall);
 

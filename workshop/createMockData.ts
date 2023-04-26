@@ -3,6 +3,7 @@ import fs from "fs";
 import { isBefore, isAfter } from "date-fns";
 import * as path from "path";
 
+type TransactionType = "withdrawal" | "deposit" | "salary" | "invoice" | "payment";
 export type Transaction = {
   currency: string;
   time: string;
@@ -10,7 +11,7 @@ export type Transaction = {
   product?: string;
   merchantCountry?: string;
   merchantName?: string;
-  transactionType: string;
+  transactionType: TransactionType;
 };
 
 const currencyCodes = ["EUR", "USD", "NOK", "GBP", "DKK", "SEK"];
@@ -24,7 +25,7 @@ const createRandomFinancialData = (): Transaction => ({
   product: faker.commerce.product(),
   merchantCountry: faker.address.country(),
   merchantName: faker.company.name(),
-  transactionType: faker.finance.transactionType(),
+  transactionType: faker.finance.transactionType() as TransactionType,
 });
 
 const data = new Array(1000).fill(null).map(createRandomFinancialData);
