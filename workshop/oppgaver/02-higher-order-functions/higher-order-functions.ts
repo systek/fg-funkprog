@@ -8,7 +8,7 @@ Copilot sier:
 import { Transaction } from "../../createMockData";
 import { Currency } from "../constants";
 
-import { isCurrency } from "./__spoilers/dontopen";
+import { isCurrency, nullableProducts } from "./__spoilers/dontopen";
 
 /**
  * OPPGAVE 2.1: Lag en funksjon som tar inn en valuta og en liste med transaksjoner
@@ -36,7 +36,7 @@ export const productsBoughtWithNOK = (transactions: Transaction[]) => {
        * Denne filtrer vekk transaksjoner som ikke har produkt (f.eks lønn).
        * La denne ligge igjen til slutt i chainen.
        */
-      .filter((it): it is NonNullable<typeof it> => it != null)
+      .filter(nullableProducts)
   );
 };
 
