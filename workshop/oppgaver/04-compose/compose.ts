@@ -23,7 +23,7 @@ import { getDate, getDay, parseISO } from "date-fns/fp";
 /**
  * OPPGAVE 4.1: Lag en funksjon som konverterer fra DKK til NOK.
  *
- * Hint: Bruk flow fra fp-ts og funkjsonene fra forrige sett med oppgaver til å
+ * Hint: Bruk flow fra fp-ts og funksjonene fra forrige sett med oppgaver til å
  * komponere en ny funksjon som konverterer fra DKK til NOK.
  *
  */

@@ -34,7 +34,7 @@ export const productsBoughtWithNOK = (transactions: Transaction[]) => {
     transactions
       /**
        * Denne filtrer vekk transaksjoner som ikke har produkt (f.eks lønn).
-       * La denne ligge igjen til slutt i chainen. 
+       * La denne ligge igjen til slutt i chainen.
        */
       .filter((it): it is NonNullable<typeof it> => it != null)
   );

@@ -28,7 +28,7 @@ export const isCurrencyCurried = (currency: Currency) => {
  * Hint: Du finner riktig konverteringsrate i ExchangeRates
  */
 
-type FromCurrencyToCurrency = (currency: number) => number;
+type FromCurrencyToCurrency = (amount: number) => number;
 export const dkkToSek: FromCurrencyToCurrency = () => 0;
 export const sekToUsd: FromCurrencyToCurrency = () => 0;
 export const usdToGbp: FromCurrencyToCurrency = () => 0;
