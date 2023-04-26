@@ -27,7 +27,9 @@ export const productsBoughtWithNOK = (transactions: Transaction[]) => {
   const toProduct = (transaction: Transaction) => "";
   const byNok = (transaction: Transaction) => 0;
 
-  return transactions.filter((it): it is NonNullable<typeof it> => it != null);
+  return transactions
+    // La denne filter-funksjonen stå.
+    .filter((it): it is NonNullable<typeof it> => it != null);
 };
 
 /**
