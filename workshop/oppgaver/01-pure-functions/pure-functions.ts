@@ -12,8 +12,8 @@ import { Transaction } from "../../createMockData";
 /**
  * OPPGAVE 1.1: En enkel pure function
  *
- * Konverterer et beløp fra en spesifikk valuta til en annen valuta basert
- * på en vekslingskurs
+ * Lag en funksjon som konverterer et beløp fra en spesifikk valuta til
+ * en annen valuta basert på en vekslingskurs.
  */
 export const convertCurrency = (exchangeRate: number, amount: number) => 0;
 
