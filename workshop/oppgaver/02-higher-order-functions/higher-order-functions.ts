@@ -12,7 +12,7 @@ import { isCurrency, nullableProducts } from "./__spoilers/dontopen";
 
 /**
  * OPPGAVE 2.1: Lag en funksjon som tar inn en valuta og en liste med transaksjoner
- * og filtrerer ut transaksjonene i den gitte valutaen.
+ * og filtrerer vekk alle andre transaksjoner enn de med den gitte valutaen.
  *
  * Hint: Her får du isCurrency funksjonen fra oppgave 1.2 importert.
  */
@@ -24,7 +24,7 @@ export const filterByCurrency = (
 };
 
 /**
- * OPPGAVE 2.2: Lag en funksjon som filtrerer ut alle transaksjoner i valutaen NOK, og returnerer en liste med produkter.
+ * OPPGAVE 2.2: Lag en funksjon som filtrerer vekk transaksjoner som ikke benytter valutaen NOK, og returnerer en liste med produkter.
  */
 export const productsBoughtWithNOK = (transactions: Transaction[]) => {
   const toProduct = (transaction: Transaction) => "";

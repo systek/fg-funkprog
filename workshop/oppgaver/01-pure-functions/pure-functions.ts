@@ -27,6 +27,8 @@ export const isCurrency = (currency: Currency, transaction: Transaction) => 0;
  *
  * Begynn med å kjøre test 1 og 2 separat, prøv også å kjør begge testene (kjør describe-blokken).
  *
+ * Gjør om funksjonen til å ikke endre på noen argumenter.
+ * 
  * Står du fast? Be veileder om litt JavaScript-skillz.
  */
 export const takeFirstN = (input: string[], count: number): string[] => {
