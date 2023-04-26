@@ -16,7 +16,10 @@ import { isCurrency } from "./__spoilers/dontopen";
  *
  * Hint: Her får du isCurrency funksjonen fra oppgave 1.2 importert.
  */
-export const filterByCurrency = (currency: Currency, transactions: Transaction[]) => {
+export const filterByCurrency = (
+  currency: Currency,
+  transactions: Transaction[]
+) => {
   return transactions;
 };
 
@@ -27,9 +30,14 @@ export const productsBoughtWithNOK = (transactions: Transaction[]) => {
   const toProduct = (transaction: Transaction) => "";
   const byNok = (transaction: Transaction) => 0;
 
-  return transactions
-    // La denne filter-funksjonen stå.
-    .filter((it): it is NonNullable<typeof it> => it != null);
+  return (
+    transactions
+      /**
+       * Denne filtrer vekk transaksjoner som ikke har produkt (f.eks lønn).
+       * La denne ligge igjen til slutt i chainen. 
+       */
+      .filter((it): it is NonNullable<typeof it> => it != null)
+  );
 };
 
 /**
