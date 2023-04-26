@@ -75,7 +75,7 @@ export const sumSalary: (transactions: Transaction[]) => number = flow(() => 0);
  *
  * Resulterende funksjon burde være curried, og filtrere på en liste av transaksjoner.
  *
- * Hint: Remeda har flere nyttige funksjorer som R.filter, R.map og R.sumBy.
+ * Hint: Remeda har flere nyttige funksjorer som R.filter og R.sumBy.
  */
 type TransactionSummer = (transactions: Transaction[]) => number;
 export const amountSpentOnProductByCurrency =
@@ -83,7 +83,7 @@ export const amountSpentOnProductByCurrency =
   (product: string): TransactionSummer => {
     return flow(
       // Denne kan slettes
-      () => 69
+      () => 0
     );
   };
 
