@@ -54,7 +54,7 @@ describe("OPPGAVE 2.3", () => {
     expect(
       filterTransactionsByProduct(
         transactions,
-        (product) => product.currency === "NOK" && product.amount < -29000
+        (transaction) => transaction.currency === "NOK" && transaction.amount < -29000
       )
     ).toHaveLength(6);
   });
@@ -63,7 +63,7 @@ describe("OPPGAVE 2.3", () => {
     expect(
       filterTransactionsByProduct(
         transactions,
-        (product) => product.product === "Mouse"
+        (transaction) => transaction.product === "Mouse"
       )
     ).toHaveLength(38);
   });
