@@ -41,7 +41,8 @@ export const productsBoughtWithNOK = (transactions: Transaction[]) => {
 };
 
 /**
- * OPPGAVE 2.3: Utvid signaturen til å ta i mot en funksjon som et parameter som avgjør om en transaksjon er relevant eller ikke.
+ * OPPGAVE 2.3: Denne funksjonen mottar et parameter som er en funksjon. Du skal da implementere
+ * en funksjon som filtrerer transaksjonene basert på filterfunksjonen som blir sendt inn.
  *
  * Hint: Se på testen :)
  */

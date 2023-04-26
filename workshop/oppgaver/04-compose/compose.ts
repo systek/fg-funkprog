@@ -29,7 +29,14 @@ import { getDate, getDay, parseISO } from "date-fns/fp";
  * Flow er en funksjon som tar inn et sett med funksjoner som parameter, og returnerer en
  * ny funksjon som tar inn en verdi som parameter. Denne verdien blir passert til siste
  * funksjon som ble sendt inn som parameter til flow. Resultatet av dette funksjonkallet blir
- * så sendt til nest siste parameter osv helt til alle funksjonene er
+ * så sendt til nest siste parameter osv helt til alle funksjonene er kjørt.
+ *
+ * Eks:
+ *
+ * const add2 = (a: number) => a + 2
+ * const div2 = (a: number) => a / 2
+ *
+ * flow(div2, add2)(10) // 6
  *
  */
 export const dkkToNok: (a: number) => number = flow((tall) => tall);
