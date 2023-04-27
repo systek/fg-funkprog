@@ -32,10 +32,15 @@ Det vil kreve at du logger inn (perfekt å logge inn med Github).
 Inne i [workshop](./workshop)-mappen vil du finne følgende oppgaver:
 
 - [01-pure-functions](./workshop/01-pure-functions/pure-functions.ts)
+  - `npm test 01`
 - [02-higher-order-functions](./workshop/02-higher-order-functions/higher-order-functions.ts)
+  - `npm test 02`
 - [03-currying-partial-application](./workshop/03-currying-partial-application/currying-partial-application.ts)
+  - `npm test 03`
 - [04-compose](./workshop/04-compose/compose.ts)
+  - `npm test 04`
 - [05-algebraic-data-types](./workshop/05-algebraic-data-types/algebraic-datatypes.ts)
+  - `npm test 05`
 
 Hver av disse vil bestå av en oppgave-TypeScript-fil, samt en test fil. Du vil i
 utgangspunktet ikke trenge å åpne testfilene om du kjører testene fra terminalen. Men du må gjerne
