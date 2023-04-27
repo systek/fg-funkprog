@@ -7,8 +7,7 @@ Copilot sier:
 
 import { flow } from "fp-ts/function";
 import R from "remeda";
-import { Currency } from "../constants";
-import { Transaction } from "../types";
+import { Currency, Transaction } from "../types";
 import {
   dkkToSek,
   sekToUsd,

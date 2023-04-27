@@ -1,7 +1,6 @@
 import * as ExchangeRates from "../../constants";
 import { convertCurrency } from "../../03-currying-partial-application/currying-partial-application";
-import { Currency } from "../../constants";
-import { Transaction } from "../../types";
+import { Transaction, Currency } from "../../types";
 
 export const dkkToSek = convertCurrency(ExchangeRates.DKK_TO_SEK);
 export const sekToUsd = convertCurrency(ExchangeRates.SEK_TO_USD);

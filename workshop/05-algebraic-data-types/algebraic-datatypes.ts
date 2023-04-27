@@ -46,5 +46,3 @@ export type Response<T> = ErrorResponse | SuccessResponse<T>;
 export function handleResponse(response: Response<string>): string {
   return "";
 }
-
-// TODO compose chain kombinert med unions?

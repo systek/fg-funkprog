@@ -6,8 +6,7 @@ Copilot sier:
     depend on any state, or data, change during a program’s execution. They must only depend on their input arguments."
 */
 
-import { Currency } from "../constants";
-import { Transaction } from "../types";
+import { Currency, Transaction } from "../types";
 
 /**
  * OPPGAVE 1.1: En enkel pure function

@@ -1,5 +1,4 @@
-import { Currency } from "../../constants";
-import { Transaction } from "../../types";
+import { Transaction, Currency } from "../../types";
 
 export const isCurrency = (currency: Currency, transaction: Transaction) =>
   transaction.currency === currency;

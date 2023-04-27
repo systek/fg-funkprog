@@ -5,8 +5,7 @@ Copilot sier:
     "Higher order functions are functions that take other functions as arguments or return functions as their results."
 */
 
-import { Transaction } from "../types";
-import { Currency } from "../constants";
+import { Transaction, Currency } from "../types";
 
 import { isCurrency, nullableProducts } from "./__spoilers/dontopen";
 
