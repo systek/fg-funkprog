@@ -1,5 +1,5 @@
 import { Currency } from "../../constants";
-import { Transaction } from "../../../createMockData";
+import { Transaction } from "../../types";
 
 export const isCurrency = (currency: Currency, transaction: Transaction) =>
   transaction.currency === currency;

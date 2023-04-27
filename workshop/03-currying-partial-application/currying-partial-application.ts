@@ -5,7 +5,7 @@ Copilot sier:
     "Currying is the process of transforming a function that takes multiple arguments into a function that takes them one at a time."
 */
 
-import { Transaction } from "../../createMockData";
+import { Transaction } from "../types";
 import { Currency } from "../constants";
 import * as ExchangeRates from "../constants";
 

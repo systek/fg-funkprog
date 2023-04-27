@@ -5,7 +5,7 @@ import {
   productsBoughtWithNOK,
   currencyFilter,
 } from "./higher-order-functions";
-import { transactions } from "../../data/transactions";
+import { transactions } from "../transactions";
 
 describe("OPPGAVE 2.1", () => {
   it("filters out all transactions in NOK", () => {

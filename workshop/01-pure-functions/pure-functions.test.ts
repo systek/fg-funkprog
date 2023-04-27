@@ -7,7 +7,7 @@ import {
   SEK_TO_USD,
   USD_TO_GBP,
 } from "../constants";
-import { Transaction } from "../../createMockData";
+import { Transaction } from "../types";
 
 import { convertCurrency, isCurrency, takeFirstN } from "./pure-functions";
 

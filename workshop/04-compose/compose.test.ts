@@ -6,7 +6,7 @@ import {
   shoesBoughtInNok,
   sumSalary,
 } from "./compose";
-import { transactions } from "../../data/transactions";
+import { transactions } from "../transactions";
 
 describe("OPPGAVE 4.1", () => {
   it("convert from DKK to SEK", () => {

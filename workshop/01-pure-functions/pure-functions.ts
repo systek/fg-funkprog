@@ -7,7 +7,7 @@ Copilot sier:
 */
 
 import { Currency } from "../constants";
-import { Transaction } from "../../createMockData";
+import { Transaction } from "../types";
 
 /**
  * OPPGAVE 1.1: En enkel pure function

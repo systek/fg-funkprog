@@ -1,6 +1,6 @@
 import { it, expect, describe } from "vitest";
 
-import { transactions } from "../../data/transactions";
+import { transactions } from "../transactions";
 import { EUR_TO_NOK } from "../constants";
 import { currencyFilter, toAmount } from "./__spoilers/dontopen";
 

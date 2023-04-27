@@ -1,4 +1,4 @@
-import { Transaction } from "../createMockData";
+import { Transaction } from "../utils/createMockData";
 
 export const transactions: Transaction[] = [
   {

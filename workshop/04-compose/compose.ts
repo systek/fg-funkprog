@@ -8,7 +8,7 @@ Copilot sier:
 import { flow } from "fp-ts/function";
 import R from "remeda";
 import { Currency } from "../constants";
-import { Transaction } from "../../createMockData";
+import { Transaction } from "../types";
 import {
   dkkToSek,
   sekToUsd,
@@ -17,7 +17,7 @@ import {
   eurToNok,
   isCurrency,
 } from "./__spoilers/dontopen";
-import { transactions } from "../../data/transactions";
+import { transactions } from "../transactions";
 import { getDate, getDay, parseISO } from "date-fns/fp";
 
 /**
