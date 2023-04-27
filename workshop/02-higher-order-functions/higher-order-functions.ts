@@ -15,22 +15,23 @@ import { isCurrency, nullableProducts } from "./__spoilers/dontopen";
  *
  * Hint: Her får du isCurrency funksjonen fra oppgave 1.2 importert.
  */
-export const filterByCurrency = (
-  currency: Currency,
-  transactions: Transaction[]
-) => {
-  return transactions;
+export const filterByCurrency = (currency: Currency, transactions: Transaction[]) => {
+  return transactions.filter((transactions) => {
+    return isCurrency(currency, transactions);
+  });
 };
 
 /**
  * OPPGAVE 2.2: Lag en funksjon som filtrerer vekk transaksjoner som ikke benytter valutaen NOK, og returnerer en liste med produkter.
  */
 export const productsBoughtWithNOK = (transactions: Transaction[]) => {
-  const toProduct = (transaction: Transaction) => "";
-  const byNok = (transaction: Transaction) => 0;
+  const toProduct = (transaction: Transaction) => transaction.product;
+  const byNok = (transaction: Transaction) => transaction.currency === "NOK";
 
   return (
     transactions
+      .filter(byNok)
+      .map(toProduct)
       /**
        * Denne filtrer vekk transaksjoner som ikke har produkt (f.eks lønn).
        * La denne ligge igjen til slutt i chainen.
@@ -49,7 +50,7 @@ export const filterTransactionsByProduct = (
   transactions: Transaction[],
   isRelevantTransaction: (transaction: Transaction) => boolean
 ) => {
-  return [];
+  return transactions.filter(isRelevantTransaction);
 };
 
 /**
@@ -58,5 +59,5 @@ export const filterTransactionsByProduct = (
 type CurrencyFilter = (transaction: Transaction) => boolean;
 
 export const currencyFilter = (currency: Currency): CurrencyFilter => {
-  return () => false;
+  return (transaction) => currency === transaction.currency;
 };

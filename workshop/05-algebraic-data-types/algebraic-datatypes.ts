@@ -26,8 +26,12 @@ type Shape = Square | Rectangle | Circle;
  */
 export function area(shape: Shape): number {
   switch (shape.kind) {
-    default:
-      throw new Error("Slett default-blokken ;)");
+    case "rectangle":
+      return shape.height * shape.width;
+    case "circle":
+      return Math.PI * shape.radius * shape.radius;
+    case "square":
+      return shape.size * shape.size;
   }
 }
 
@@ -44,5 +48,8 @@ export type SuccessResponse<T> = { status: "success"; data: T };
 export type Response<T> = ErrorResponse | SuccessResponse<T>;
 
 export function handleResponse(response: Response<string>): string {
-  return "";
+  if (response.status === "error") {
+    return `There was an error: ${response.message}`;
+  }
+  return response.data;
 }

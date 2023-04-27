@@ -38,7 +38,13 @@ import { getDate, getDay, parseISO } from "date-fns/fp";
  * flow(div2, add2)(10) // 6
  *
  */
-export const dkkToNok: (a: number) => number = flow((tall) => tall);
+export const dkkToNok: (a: number) => number = flow(
+  dkkToSek,
+  sekToUsd,
+  usdToGbp,
+  gbpToEur,
+  eurToNok
+);
 
 /**
  * OPPGAVE 4.2: Implementer hver av funksjonene under, så den komponerte funksjonen under
@@ -48,15 +54,15 @@ export const dkkToNok: (a: number) => number = flow((tall) => tall);
  * øverst i fila om du sitter fast. Om du vil så kan du også titte i dokumentasjonen til
  * date-fns: https://date-fns.org/docs/Getting-Started
  */
-const bySalary = (transaction: Transaction): boolean => false;
-const toDate = (transaction: Transaction): Date => new Date();
-const firstItem = <T>(list: T[]): T => list[0];
+const bySalary = (transaction: Transaction): boolean => transaction.transactionType === "salary";
+const toDate = (transaction: Transaction): Date => parseISO(transaction.time);
+const firstItem = (list: number[]): number => list[0];
 
 export const dayOfSalary: (transactions: Transaction[]) => number = flow(
   R.filter(bySalary),
   R.map(toDate),
   // Plugg inn en fn fra date-fns (hint: ikke getDay)
-  R.map(() => 0),
+  R.map(getDate),
   firstItem
 );
 
@@ -66,7 +72,10 @@ export const dayOfSalary: (transactions: Transaction[]) => number = flow(
  *
  * Hint: Bruk R.filter og R.sumBy
  */
-export const sumSalary: (transactions: Transaction[]) => number = flow(() => 0);
+export const sumSalary: (transactions: Transaction[]) => number = flow(
+  R.filter((it) => it.transactionType === "salary"),
+  R.sumBy((it) => it.amount)
+);
 
 /**
  * OPPGAVE 4.4: Lag en funksjon som bruker diverse Remeda (R.)-funksjoner for å
@@ -80,9 +89,13 @@ type TransactionSummer = (transactions: Transaction[]) => number;
 export const amountSpentOnProductByCurrency =
   (currency: Currency) =>
   (product: string): TransactionSummer => {
+    const byProduct = (it: Transaction) => it.product === product;
+
     return flow(
-      // Denne kan slettes
-      () => 0
+      R.filter(isCurrency(currency)),
+      R.filter(byProduct),
+      R.map(R.prop("amount")),
+      R.sumBy(R.identity)
     );
   };
 
