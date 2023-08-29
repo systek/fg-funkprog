@@ -13,27 +13,27 @@ import CurryingPartialApplication
 
 -- OPPGAVE 4.1: Lag en funksjon som konverterer fra DKK til NOK.
 dkkToNok :: Double -> Double
-dkkToNok = eurToNok . gbpToEur . usdToGbp . sekToUsd . dkkToSek
+dkkToNok _ = 0.0
 
 bySalary :: Transaction -> Bool
-bySalary a = transactionType a == "salary"
+bySalary a = False
 
--- Oppgave 4.3: Calculate total earned salary
+-- Oppgave 4.2: Calculate total earned salary
 sumSalary :: [Transaction] -> Double
 sumSalary _ = 0.0
 
--- Oppgave 4.4: Calculate amount spent on a product in a specific currency
+-- Oppgave 4.3: Calculate amount spent on a product in a specific currency
 amountSpentOnProductByCurrency :: Currency -> Product -> [Transaction] -> Double
-amountSpentOnProductByCurrency c product _ = 0.0
+amountSpentOnProductByCurrency c p t = 0.0
  where
    filterFn :: Transaction -> Bool
-   filterFn t = undefined
+   filterFn t = False
 
-amountSpentOnProductInNok :: String -> [Transaction] -> Double
-amountSpentOnProductInNok = undefined
+amountSpentOnProductInNok :: Product -> [Transaction] -> Double
+amountSpentOnProductInNok p t = 0.0
 
 pantsBoughtInNok :: [Transaction] -> Double
-pantsBoughtInNok = undefined
+pantsBoughtInNok t = 0.0
 
 shoesBoughtInNok :: [Transaction] -> Double
-shoesBoughtInNok = undefined
+shoesBoughtInNok t = 0.0

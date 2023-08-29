@@ -14,21 +14,20 @@ import PureFunctions
 --
 -- Hint: Her får du isCurrency funksjonen fra oppgave 1.2 importert.
 filterByCurrency :: Currency -> [Transaction] -> [Transaction]
-filterByCurrency c t = []
+filterByCurrency c t = filter (isCurrency c) t
 
 -- OPPGAVE 2.2: Lag en funksjon som filtrerer vekk transaksjoner som ikke benytter valutaen NOK, og returnerer en liste med produkter.
 productsBoughtWithNOK :: [Transaction] -> [Product]
-productsBoughtWithNOK t = []
+productsBoughtWithNOK = map transactionProduct . filterByCurrency "NOK"
 
 -- OPPGAVE 2.3: Denne funksjonen mottar et parameter som er en funksjon. Du skal da implementere
 -- en funksjon som filtrerer transaksjonene basert på filterfunksjonen som blir sendt inn.
 --
 -- Hint: Se på testen :)
 filterTransactionsByProduct :: [Transaction] -> (Transaction -> Bool) -> [Transaction]
-filterTransactionsByProduct t isRelevantTransaction = []
+filterTransactionsByProduct t isRelevantTransaction = filter isRelevantTransaction t
 
 -- OPPGAVE 2.4: Lag en funksjon som returnerer en funksjon som filtrerer en gitt transaksjon basert på valuta-parameteret.
--- Gir også lite mening i Haskell og er derfor løst
 type CurrencyFilter = Transaction -> Bool
 
 currencyFilter :: Currency -> CurrencyFilter

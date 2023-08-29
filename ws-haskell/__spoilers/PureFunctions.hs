@@ -7,8 +7,8 @@ import Transaction
 -- en annen valuta basert på en vekslingskurs.
 
 convertCurrency :: Double -> Double -> Double
-convertCurrency a r = 0.0
+convertCurrency a r = r * a
 
 -- OPPGAVE 1.2: Lag en funksjon som ser om en transaksjon er av en gitt valuta.
 isCurrency :: Currency -> Transaction -> Bool
-isCurrency c t = False
+isCurrency c t = currency t == c
