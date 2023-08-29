@@ -29,6 +29,10 @@ Det vil kreve at du logger inn (perfekt å logge inn med Github).
 
 ### Steg 3: Utføre workshoppen
 
+Her kan man velge å løse oppgavene i TypeScript, eller Haskell.
+
+#### TypeScript:
+
 Inne i [workshop](./workshop)-mappen vil du finne følgende oppgaver:
 
 - [01-pure-functions](./workshop/01-pure-functions/pure-functions.ts)
@@ -57,6 +61,24 @@ Eller så kan du kjøre en og en underoppgave:
 
 Alle disse kommandoene vil re-kjøre testene når du endrer koden!
 
+#### Haskell:
+
+Inne i [ws-haskell](./ws-haskell)-mappen vil du finne følgende oppgaver:
+
+- [01-pure-functions](./ws-haskell/lib/PureFunctions.hs)
+- [02-higher-order-functions](./ws-haskell/lib/HigherOrderFunctions.hs)
+- [03-currying-partial-application](./ws-haskell/lib/CurryingPartialApplication.hs)
+- [04-compose](./ws-haskell/lib/Compose.hs)
+
+Hver av disse vil bestå av en oppgave-Haskell-fil, samt en test fil (som ligger i [tests](./ws-haskell/tests)). Du vil i
+utgangspunktet ikke trenge å åpne testfilene om du kjører testene fra terminalen.
+
+Kjør testene etter at du har løst en oppgave. Her kan du velge å kjøre absolutt alle testene samtidig:
+`cabal test`
+
+Eller så kan du kjøre en og en oppgave:
+`cabal test PureFunctions` for oppgave 01, `npm test HigherOrderFunctions` for oppgave 02 osv.
+
 #### Jeg står fast!!
 
-Rop ut, så skal vi hjelpe deg!
+Rop ut på [fg_funkprog](https://systekkompis.slack.com/archives/C04AVTJM62Y) så skal vi hjelpe deg!
